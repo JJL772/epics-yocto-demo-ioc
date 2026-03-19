@@ -32,6 +32,11 @@ systemMonitor_SRCS += systemMonitor_registerRecordDeviceDriver.cpp
 systemMonitor_SRCS_DEFAULT += systemMonitorMain.cpp
 systemMonitor_SRCS_vxWorks += -nil-
 
+ifdef LINSTAT_0_0_0
+systemMonitor_DBD += linStat.dbd
+systemMonitor_LIBS += linStat
+endif
+
 # Add support from base/src/vxWorks if needed
 #systemMonitor_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
