@@ -18,9 +18,7 @@ DBD += systemMonitor.dbd
 
 # systemMonitor.dbd will be made up from these files:
 systemMonitor_DBD += base.dbd
-
-# Include dbd files from all support applications:
-#systemMonitor_DBD += xxx.dbd
+systemMonitor_DBD += PVAServerRegister.dbd qsrv.dbd
 
 # Add all the support libraries needed by this IOC
 #systemMonitor_LIBS += xxx
@@ -37,10 +35,10 @@ systemMonitor_DBD += linStat.dbd
 systemMonitor_LIBS += linStat
 endif
 
-# Add support from base/src/vxWorks if needed
-#systemMonitor_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
+systemMonitor_LIBS += qsrv
 
 # Finally link to the EPICS Base libraries
+systemMonitor_LIBS += $(EPICS_BASE_PVA_CORE_LIBS)
 systemMonitor_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #===========================

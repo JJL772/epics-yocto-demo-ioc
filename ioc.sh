@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-cd iocBoot/sioc-sys-info
+cd iocBoot/sioc-yocto-demo
 ./st.cmd
 
