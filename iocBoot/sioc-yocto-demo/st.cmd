@@ -13,10 +13,11 @@ cd "${TOP}"
 
 epicsEnvSet("EPICS_DB_INCLUDE_PATH", "${TOP}/db")
 
-## Register all support components
+# Register all support components
 dbLoadDatabase "dbd/systemMonitor.dbd"
 systemMonitor_registerRecordDeviceDriver pdbbase
 
+# Load linStat records
 dbLoadRecords("db/linStatHost.db", "IOC=$(IOC)")
 dbLoadRecords("db/linStatProc.db", "IOC=$(IOC)")
 dbLoadRecords("db/linStatFS.db", "P=$(IOC):ROOT,DIR=/")
@@ -24,4 +25,3 @@ dbLoadRecords("db/linStatFS.db", "P=$(IOC):BOOT,DIR=/boot")
 
 cd "${TOP}/iocBoot/${IOC}"
 iocInit
-
