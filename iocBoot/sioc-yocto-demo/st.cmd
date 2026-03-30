@@ -18,10 +18,10 @@ dbLoadDatabase "dbd/systemMonitor.dbd"
 systemMonitor_registerRecordDeviceDriver pdbbase
 
 # Load linStat records
-dbLoadRecords("db/linStatHost.db", "IOC=$(IOC)")
-dbLoadRecords("db/linStatProc.db", "IOC=$(IOC)")
-dbLoadRecords("db/linStatFS.db", "P=$(IOC):ROOT,DIR=/")
-dbLoadRecords("db/linStatFS.db", "P=$(IOC):BOOT,DIR=/boot")
+dbLoadRecords("db/linStatHost.db", "IOC=$(EPICS_IOC_PV)")
+dbLoadRecords("db/linStatProc.db", "IOC=$(EPICS_IOC_PV)")
+dbLoadRecords("db/linStatFS.db", "P=$(EPICS_IOC_PV):ROOT,DIR=/")
+dbLoadRecords("db/linStatFS.db", "P=$(EPICS_IOC_PV):BOOT,DIR=/boot")
 
 cd "${TOP}/iocBoot/${IOC}"
 iocInit
